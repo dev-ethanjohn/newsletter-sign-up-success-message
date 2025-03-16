@@ -1,0 +1,77 @@
+/*=======================
+ * CUSTOM PROPERTIES
+ *========================**/
+
+:root {
+  /*colors */
+  --clr-grey: 0 0% 58%;
+
+  --clr-white: 0 100% 100%;
+
+  --clr-blue-800: 234 29% 20%;
+  --clr-blue-700: 235 18% 26%;
+
+  --clr-red: 4 100% 67%;
+
+  --clr-gradient-orange: 15 100% 61%;
+  --clr-gradient-red: 346 100% 66%;
+
+  /* font-family */
+  --ff-sans: "Robot", sans-serif;
+
+  /* font size */
+  --fs-500: 2.5rem; /* 40-56px*/
+  --fs-200: 0.75rem; /*16x*/
+  --fs-100: 0.8125rem; /*12px*/
+}
+
+@media (min-width: 48em) {
+  :root {
+    --fs-500: 3.5rem; /*56px*/
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--ff-sans);
+  font-size: var(--fs-200);
+  font-weight: normal;
+  color: hsl(var(--clr-blue-800));
+
+  /* improve text rendering on mac */
+  -webkit-font-smoothing: antialiased;
+
+  background-color: hsl(var(--clr-blue-700));
+  line-height: 1.5;
+}
+
+img {
+  /* https://www.youtube.com/watch?v=345V2MU3E_w */
+  font-style: italic;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+p,
+h1,
+h2,
+h3 {
+  overflow-wrap: break-word;
+}
+
+button {
+  display: inline;
+  all: unset;
+  cursor: pointer;
+}
