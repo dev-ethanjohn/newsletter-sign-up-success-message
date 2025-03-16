@@ -1,52 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | Newsletter sign-up form with success message</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
   </style>
 </head>
+
 <body>
 
   <!-- Sign-up form start -->
+  <main>
+    <section>
 
-  Stay updated!
+      <picture>
+        <source media="(min-width: 75em)" srcset="./assets/images/illustration-sign-up-desktop.svg">
+        <img src=" ./assets/images/illustration-sign-up-mobile.svg" alt="">
+      </picture>
 
-  Join 60,000+ product managers receiving monthly updates on:
 
-  Product discovery and building what matters
-  Measuring to ensure updates are a success
-  And much more!
+      <div>
+        <h2>Stay updated</h2>
+        <p>Join 60,000+ product managers receiving monthly updates on:</p>
 
-  Email address
-  email@company.com
+        <ul>
+          <li><img src="./assets/images/icon-list.svg" alt="">Product discovery and building what matters</li>
+          <li><img src="./assets/images/icon-list.svg" alt="">Measuring to ensure updates are a success</li>
+          <li><img src="./assets/images/icon-list.svg" alt="">And much more!</li>
+        </ul>
 
-  Subscribe to monthly newsletter
 
-  <!-- Sign-up form end -->
+        <form action="">
+          <div>
+            <label for="email"></label>
+            <!-- add an error text , optional only displays if there is an error when submitting-->
+            <span id="email-error" class="error-message" role="alert" aria-live="assertive"></span>
+          </div>
 
-  <!-- Success message start -->
+          <input class="signup-email" type="email" id="email" name="email" autocomplete="email"
+            placeholder="ash@loremcompany.com" aria-describedby="error-message" required>
+          <button type="submit">Subscribe to monthly newsletter</button>
+          x
+        </form>
 
-  Thanks for subscribing!
+      </div>
+    </section>
 
-  A confirmation email has been sent to ash@loremcompany.com. 
-  Please open it and click the button inside to confirm your subscription.
 
-  Dismiss message
 
-  <!-- Success message end -->
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+
+    <dialog class="">
+
+      Thanks for subscribing!
+
+      A confirmation email has been sent to ash@loremcompany.com.
+      Please open it and click the button inside to confirm your subscription.
+
+      Dismiss message
+    </dialog>
+
+  </main>
 </body>
+
 </html>
