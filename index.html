@@ -29,55 +29,51 @@
 </head>
 
 <body>
-
-  <!-- Sign-up form start -->
   <main>
     <h1 class="visually-hidden">Newsletter Signup Form</h1>
-    <section>
+    <section class="newsletter">
 
-      <picture>
+      <!-- IMAGE CONTAINER -->
+      <picture class="newsletter__illustration" aria-labelledby="newsletter__title">
         <source media="(min-width: 75em)" srcset="./assets/images/illustration-sign-up-desktop.svg">
         <img src=" ./assets/images/illustration-sign-up-mobile.svg" alt="">
       </picture>
 
-
-      <div>
-        <h2>Stay updated</h2>
-        <p>Join 60,000+ product managers receiving monthly updates on:</p>
-
-        <ul>
-          <li><img src="./assets/images/icon-list.svg" alt="">Product discovery and building what matters</li>
-          <li><img src="./assets/images/icon-list.svg" alt="">Measuring to ensure updates are a success</li>
-          <li><img src="./assets/images/icon-list.svg" alt="">And much more!</li>
+      <!-- MAIN CONTENT -->
+      <div class="newsletter__content">
+        <h2 class="newsletter__title">Stay updated</h2>
+        <p class="newsletter__description">Join 60,000+ product managers receiving monthly updates on:</p>
+        <ul class="newsletter_features">
+          <li class="newsletter_feature"><img src="./assets/images/icon-list.svg" alt="">Product discovery and building
+            what matters</li>
+          <li class="newsletter_feature"><img src="./assets/images/icon-list.svg" alt="">Measuring to ensure updates are
+            a success</li>
+          <li class="newsletter_feature"><img src="./assets/images/icon-list.svg" alt="">And much more!</li>
         </ul>
 
-
-        <form action="">
-          <div>
-            <label for="email"></label>
+        <form class="newsletter__form" aria-labelledby="subscribe-button">
+          <div class="newsletter__input-group">
+            <label class="newsletter__label" for="email"></label>
             <!-- add an error text , optional only displays if there is an error when submitting-->
-            <span id="email-error" class="error-message" role="alert" aria-live="assertive"></span>
+            <span id="email-error" class="newsletter__error error-message" role="alert" aria-live="assertive"></span>
+            <input class="signup-email" type="email" id="email" name="email" autocomplete="email"
+              placeholder="ash@loremcompany.com" aria-describedby="error-message" required>
           </div>
-
-          <input class="signup-email" type="email" id="email" name="email" autocomplete="email"
-            placeholder="ash@loremcompany.com" aria-describedby="error-message" required>
-          <button type="submit">Subscribe to monthly newsletter</button>
-          x
+          <button class="newsletter__button" id="subscribe-button" type="submit">Subscribe to monthly
+            newsletter</button>
         </form>
-
       </div>
+
     </section>
 
-    <dialog class="">
-
+    <!-- <dialog class="">
       Thanks for subscribing!
 
       A confirmation email has been sent to ash@loremcompany.com.
       Please open it and click the button inside to confirm your subscription.
 
       Dismiss message
-    </dialog>
-
+    </dialog> -->
   </main>
 </body>
 
