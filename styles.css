@@ -25,7 +25,7 @@
   --fs-100: 0.8125rem; /*12px*/
 }
 
-@media (min-width: 48em) {
+@media (min-width: 37.5em) {
   :root {
     --fs-500: 3.5rem; /*56px*/
   }
@@ -270,4 +270,55 @@ button {
 
 .success-dialog__icon {
   height: 4rem;
+}
+
+/* *min 600px tab-port */
+@media (min-width: 37.5em) {
+  body {
+    background-color: hsl(var(--clr-blue-700));
+  }
+  .newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin: 4.5625rem 5rem;
+    border-radius: 2.25rem;
+    overflow: hidden;
+    padding: 2.5rem;
+    min-height: auto; /*reverts to the content's height*/
+  }
+
+  .newsletter__content-container {
+    padding: 0;
+    gap: 1.5rem;
+  }
+
+  .newsletter__illustration {
+    border-radius: calc(1rem + 1.75vw);
+  }
+
+  .newsletter__form {
+    gap: 1rem;
+  }
+}
+
+/* *min 900px tab-land */
+/* @media (min-width: 56.25em) {
+} */
+
+/* min 1200px desktop */
+@media (min-width: 75em) {
+  .newsletter {
+    flex-direction: row;
+    gap: 2.5rem;
+    margin: 4.5625rem 5rem;
+    border-radius: 2.25rem;
+    overflow: hidden;
+    padding: 2.5rem;
+    min-height: auto; /*reverts to the content's height*/
+  }
+}
+
+/* min 1800px big-deskyop */
+@media (min-width: 112.5em) {
 }
