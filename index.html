@@ -64,9 +64,10 @@
             <span id="email-error" class="newsletter__error error-message hidden" role="alert"
               aria-live="assertive"></span>
             <input class="newsletter__input" type="email" id="email" name="email" autocomplete="email"
-              placeholder="ash@loremcompany.com" aria-describedby="email-error" required>
+              placeholder="ash@loremcompany.com" aria-describedby="email-error"
+              pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
           </div>
-          <button class="open-dialog__button" id="subscribe-button" type="submit">Subscribe to monthly
+          <button class="btn open-dialog__button" id="subscribe-button" type="submit">Subscribe to monthly
             newsletter</button>
         </form>
       </div>
@@ -74,14 +75,17 @@
     </section>
 
     <!-- SUCCESS MESSAGE -->
-    <dialog class="success-dialog">
+    <dialog class="success-dialog hidden">
       <div class="success-dialog__content">
-        <h2 class="success-dialog__title">Thanks for subscribing!</h2>
-        <p class="success-dialog__message">
-          A confirmation email has been sent to <strong class="success-dialog__email">ash@loremcompany.com</strong>.<br>
-          Please open it and click the button inside to confirm your subscription.
-        </p>
-        <button class="success-dialog__button" type="button">Dismiss message</button>
+        <div class="success-dialog__header">
+          <img class="success-dialog__icon" src="./assets/images/icon-list.svg" alt="">
+          <h2 class="success-dialog__title">Thanks for subscribing!</h2>
+          <p class="success-dialog__message">
+            A confirmation email has been sent to <strong class="success-dialog__email">ash@loremcompany.com</strong>.
+            Please open it and click the button inside to confirm your subscription.
+          </p>
+        </div>
+        <button class="btn close-dialog__button" type="button">Dismiss message</button>
       </div>
     </dialog>
 

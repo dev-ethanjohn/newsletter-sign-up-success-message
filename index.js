@@ -1,15 +1,17 @@
 "use strict";
 
+const closeModal = document.querySelector(".close-dialog__button");
+const modal = document.querySelector(".success-dialog");
+
 (function () {
   const successDialog = document.querySelector(".success-dialog");
-  const openDialogBtn = document.querySelector(".open-dialog__button");
+  const form = document.querySelector(".newsletter__form");
   const emailInputField = document.querySelector(".newsletter__input");
   const emailError = document.querySelector(".error-message");
 
-  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
   //NOTE: helper func
   function isEmailValid(email) {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailPattern.test(email);
   }
 
@@ -22,7 +24,6 @@
     emailError.classList.remove("hidden");
     emailError.classList.add("shake");
 
-    // remove shake class after animation completes
     setTimeout(() => {
       emailError.classList.remove("shake");
     }, 400);
@@ -32,30 +33,45 @@
     emailError.classList.add("hidden");
   }
 
-  function handleSubmitBtn(e) {
-    e.preventDefault();
+  //*custom validation
+  emailInputField.addEventListener("input", function () {
+    if (emailInputField.validity.valid) {
+      hideError();
+      emailInputField.classList.remove("invalid");
+    }
+  });
 
-    //* get email input
-    const emailValue = emailInputField.value.trim();
-    // console.log("Entered email:", emailValue);
-
-    hideError();
-
-    // *validate email input
-    if (!isEmailValid(emailValue)) {
-      showError("Please enter a valid email.");
-      emailInputField.classList.add("invalid");
-
+  form.addEventListener("submit", function (e) {
+    if (!emailInputField.validity.valid) {
       return;
     }
 
-    // * reset
+    const emailValue = emailInputField.value.trim();
+
+    // *check our custom validation
+    if (!isEmailValid(emailValue)) {
+      e.preventDefault();
+      emailInputField.classList.add("invalid");
+      showError("Please enter a valid email.");
+      return;
+    }
+
+    e.preventDefault();
+
+    //*reset
     emailInputField.classList.remove("invalid");
     clearEmail(emailInputField);
 
-    // * show if email valid
+    //*show
+    successDialog.classList.remove("hidden");
     successDialog.showModal();
-  }
-
-  openDialogBtn.addEventListener("click", handleSubmitBtn);
+  });
 })();
+
+closeModal.addEventListener("click", () => {
+  modal.classList.add("hidden");
+
+  setTimeout(() => {
+    modal.close();
+  }, 200);
+});
