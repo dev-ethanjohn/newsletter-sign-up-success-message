@@ -33,47 +33,64 @@
     <section class="newsletter">
 
       <!-- IMAGE CONTAINER -->
-      <picture class="newsletter__illustration" aria-labelledby="newsletter__title">
+      <picture class="newsletter__illustration-box" aria-labelledby="newsletter-title">
         <source media="(min-width: 75em)" srcset="./assets/images/illustration-sign-up-desktop.svg">
-        <img src=" ./assets/images/illustration-sign-up-mobile.svg" alt="">
+        <img class="newsletter__illustration" src="./assets/images/illustration-sign-up-mobile.svg" alt="">
       </picture>
 
-      <!-- MAIN CONTENT -->
-      <div class="newsletter__content">
-        <h2 class="newsletter__title">Stay updated</h2>
-        <p class="newsletter__description">Join 60,000+ product managers receiving monthly updates on:</p>
-        <ul class="newsletter_features">
-          <li class="newsletter_feature"><img src="./assets/images/icon-list.svg" alt="">Product discovery and building
-            what matters</li>
-          <li class="newsletter_feature"><img src="./assets/images/icon-list.svg" alt="">Measuring to ensure updates are
-            a success</li>
-          <li class="newsletter_feature"><img src="./assets/images/icon-list.svg" alt="">And much more!</li>
-        </ul>
+      <!-- MAIN CONTENT CONTAINER -->
+      <div class="newsletter__content-container">
 
+        <!-- MAIN CONTENT -->
+        <div class="newsletter__info">
+          <h2 class="newsletter__title" id="newsletter-title">Stay updated</h2>
+          <p class="newsletter__description">Join 60,000+ product managers receiving monthly updates on:</p>
+          <ul class="newsletter__features">
+            <li class="newsletter__feature"><img src="./assets/images/icon-list.svg" alt="">Product discovery and
+              building
+              what matters</li>
+            <li class="newsletter__feature"><img src="./assets/images/icon-list.svg" alt="">Measuring to ensure updates
+              are
+              a success</li>
+            <li class="newsletter__feature"><img src="./assets/images/icon-list.svg" alt="">And much more!</li>
+          </ul>
+        </div>
+
+        <!-- FORM CONTAINER -->
         <form class="newsletter__form" aria-labelledby="subscribe-button">
           <div class="newsletter__input-group">
-            <label class="newsletter__label" for="email"></label>
+            <label class="newsletter__label" for="email">Email address</label>
             <!-- add an error text , optional only displays if there is an error when submitting-->
-            <span id="email-error" class="newsletter__error error-message" role="alert" aria-live="assertive"></span>
-            <input class="signup-email" type="email" id="email" name="email" autocomplete="email"
-              placeholder="ash@loremcompany.com" aria-describedby="error-message" required>
+            <span id="email-error" class="newsletter__error error-message hidden" role="alert"
+              aria-live="assertive"></span>
+            <input class="newsletter__input" type="email" id="email" name="email" autocomplete="email"
+              placeholder="ash@loremcompany.com" aria-describedby="email-error" required>
           </div>
-          <button class="newsletter__button" id="subscribe-button" type="submit">Subscribe to monthly
+          <button class="open-dialog__button" id="subscribe-button" type="submit">Subscribe to monthly
             newsletter</button>
         </form>
       </div>
 
     </section>
 
-    <!-- <dialog class="">
-      Thanks for subscribing!
+    <!-- SUCCESS MESSAGE -->
+    <dialog class="success-dialog">
+      <div class="success-dialog__content">
+        <h2 class="success-dialog__title">Thanks for subscribing!</h2>
+        <p class="success-dialog__message">
+          A confirmation email has been sent to <strong class="success-dialog__email">ash@loremcompany.com</strong>.<br>
+          Please open it and click the button inside to confirm your subscription.
+        </p>
+        <button class="success-dialog__button" type="button">Dismiss message</button>
+      </div>
+    </dialog>
 
-      A confirmation email has been sent to ash@loremcompany.com.
-      Please open it and click the button inside to confirm your subscription.
-
-      Dismiss message
-    </dialog> -->
   </main>
+
+
+
+  <script src="index.js"></script>
 </body>
+
 
 </html>
