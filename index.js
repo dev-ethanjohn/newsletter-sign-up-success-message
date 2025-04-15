@@ -2,6 +2,7 @@
 
 const closeModal = document.querySelector(".close-dialog__button");
 const modal = document.querySelector(".success-dialog");
+const successDialogEmail = document.querySelector(".success-dialog__email");
 
 (function () {
   const successDialog = document.querySelector(".success-dialog");
@@ -35,6 +36,7 @@ const modal = document.querySelector(".success-dialog");
 
   //*custom validation
   emailInputField.addEventListener("input", function () {
+    // *if valid (built in form feedback)
     if (emailInputField.validity.valid) {
       hideError();
       emailInputField.classList.remove("invalid");
@@ -47,6 +49,7 @@ const modal = document.querySelector(".success-dialog");
     }
 
     const emailValue = emailInputField.value.trim();
+    successDialogEmail.textContent = emailValue; //* bind the email to confirmation message
 
     // check our custom
     if (!isEmailValid(emailValue)) {
