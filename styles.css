@@ -244,6 +244,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: hsl(var(--clr-white));
 }
 
 .success-dialog__header {
@@ -313,6 +314,21 @@ button {
   .newsletter__form {
     gap: 1rem;
   }
+
+  .success-dialog {
+    background-color: hsl(var(--clr-blue-700));
+  }
+
+  .success-dialog__content {
+    width: 31.5rem;
+    height: 32.5rem;
+    padding: 3.725rem 4rem;
+    border-radius: 2.25rem;
+  }
+
+  .success-dialog__title {
+    line-height: 1;
+  }
 }
 
 /* *min 900px tab-land */
@@ -328,7 +344,8 @@ button {
     overflow: hidden;
     padding: 2rem;
     min-height: auto; /*reverts to the content's height*/
-    width: auto;
+    /* width: auto; */
+    max-width: calc(56.5rem + 4vw);
   }
 
   .newsletter__illustration-box {
@@ -341,6 +358,6 @@ button {
   }
 }
 
-/* min 1800px big-deskyop */
-@media (min-width: 112.5em) {
-}
+/* * min 1800px big-deskyop */
+/* @media (min-width: 112.5em) {
+} */
