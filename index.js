@@ -10,7 +10,7 @@ const successDialogEmail = document.querySelector(".success-dialog__email");
   const emailInputField = document.querySelector(".newsletter__input");
   const emailError = document.querySelector(".error-message");
 
-  //NOTE: helper func
+  // NOTE helper func
   function isEmailValid(email) {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailPattern.test(email);
@@ -20,12 +20,14 @@ const successDialogEmail = document.querySelector(".success-dialog__email");
     inputElement.value = "";
   }
 
+  let shakeTimeout;
   function showError(message) {
     emailError.textContent = message;
     emailError.classList.remove("hidden");
     emailError.classList.add("shake");
 
-    setTimeout(() => {
+    clearTimeout(shakeTimeout); //* ensure animation doesn't conflict
+    shakeTimeout = setTimeout(() => {
       emailError.classList.remove("shake");
     }, 400);
   }
@@ -34,9 +36,8 @@ const successDialogEmail = document.querySelector(".success-dialog__email");
     emailError.classList.add("hidden");
   }
 
-  //*custom validation
+  // NOTE: Event listeners
   emailInputField.addEventListener("input", function () {
-    // *if valid (built in form feedback)
     if (emailInputField.validity.valid) {
       hideError();
       emailInputField.classList.remove("invalid");
@@ -44,37 +45,42 @@ const successDialogEmail = document.querySelector(".success-dialog__email");
   });
 
   form.addEventListener("submit", function (e) {
-    if (!emailInputField.validity.valid) {
-      return;
-    }
+    e.preventDefault();
 
     const emailValue = emailInputField.value.trim();
-    successDialogEmail.textContent = emailValue; //* bind the email to confirmation message
-
-    // check our custom
     if (!isEmailValid(emailValue)) {
-      e.preventDefault();
       emailInputField.classList.add("invalid");
       showError("Please enter a valid email.");
       return;
     }
 
-    e.preventDefault();
-
-    //*reset
+    //* show dialog + bind email text
+    successDialogEmail.textContent = emailValue;
     emailInputField.classList.remove("invalid");
     clearEmail(emailInputField);
 
-    //*show
     successDialog.classList.remove("hidden");
     successDialog.showModal();
+
+    closeModal.focus();
+
+    setTimeout(() => {
+      closeModal.classList.add("highlight-button");
+    }, 300);
   });
 })();
 
+//* close modal
 closeModal.addEventListener("click", () => {
   modal.classList.add("hidden");
-
+  closeModal.classList.remove("highlight-button");
   setTimeout(() => {
     modal.close();
   }, 200);
+});
+
+//* exit on esc
+modal.addEventListener("cancel", () => {
+  modal.classList.add("hidden");
+  closeModal.classList.remove("highlight-button");
 });

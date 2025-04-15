@@ -317,13 +317,16 @@ button {
 
   .success-dialog {
     background-color: hsl(var(--clr-blue-700));
+    align-items: center;
   }
 
   .success-dialog__content {
     width: 31.5rem;
-    height: 32.5rem;
+    height: auto;
     padding: 3.725rem 4rem;
     border-radius: 2.25rem;
+    margin: 0;
+    gap: 2rem;
   }
 
   .success-dialog__title {
@@ -356,16 +359,36 @@ button {
     order: 1;
     justify-content: center;
   }
-
-  .success-dialog {
-    align-items: center;
-  }
-
-  .success-dialog__content {
-    margin: 0;
-  }
 }
 
 /* * min 1800px big-deskyop */
 /* @media (min-width: 112.5em) {
 } */
+
+/* NOTE: pulsating button */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 hsl(var(--clr-gradient-red) / 0.6);
+  }
+  70% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 6px rgba(0, 123, 255, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+  }
+}
+
+.highlight-button {
+  animation: pulse 1.5s infinite;
+}
+
+.highlight-button:hover {
+  background-image: linear-gradient(
+    to right,
+    hsl(var(--clr-gradient-orange)),
+    hsl(var(--clr-gradient-red))
+  );
+}
