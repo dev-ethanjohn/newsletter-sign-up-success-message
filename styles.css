@@ -359,6 +359,10 @@ button {
     order: 1;
     justify-content: center;
   }
+
+  .newsletter__illustration {
+    border-radius: calc(1rem + 0.5vw);
+  }
 }
 
 /* * min 1800px big-deskyop */
