@@ -356,6 +356,14 @@ button {
     order: 1;
     justify-content: center;
   }
+
+  .success-dialog {
+    align-items: center;
+  }
+
+  .success-dialog__content {
+    margin: 0;
+  }
 }
 
 /* * min 1800px big-deskyop */
