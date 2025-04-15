@@ -48,7 +48,7 @@ const modal = document.querySelector(".success-dialog");
 
     const emailValue = emailInputField.value.trim();
 
-    // *check our custom validation
+    // check our custom
     if (!isEmailValid(emailValue)) {
       e.preventDefault();
       emailInputField.classList.add("invalid");
